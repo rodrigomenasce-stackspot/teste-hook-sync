@@ -1,2 +1,2 @@
 # teste-hook-sync
-1
+12
