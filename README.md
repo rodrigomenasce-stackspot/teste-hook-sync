@@ -27,5 +27,3 @@ npx nx run-many -t test
 ```
 
 demo-8a336802
-
-demo-220b4d60
