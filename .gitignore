@@ -3,7 +3,14 @@ dist/
 *.log
 .DS_Store
 
-
+# Java / Maven
+target/
+*.class
+*.jar
+*.war
+.mvn/wrapper/maven-wrapper.jar
+.idea/
+*.iml
 
 .nx/cache
 .nx/workspace-data

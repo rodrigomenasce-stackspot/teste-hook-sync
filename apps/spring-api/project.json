@@ -1,0 +1,30 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "spring-api",
+  "sourceRoot": "apps/spring-api/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{projectRoot}/target"],
+      "options": {
+        "cwd": "apps/spring-api",
+        "command": "./mvnw -q -DskipTests package"
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/spring-api",
+        "command": "./mvnw spring-boot:run"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/spring-api",
+        "command": "./mvnw -q test"
+      }
+    }
+  }
+}
