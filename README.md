@@ -1,14 +1,33 @@
-# teste-hook-sync
-12356789444
-456
-78
+# empty-test-repo
 
-demo-4d95cfbe
+Nx monorepo with two hello-world apps.
 
-demo-09651ddf
+## Layout
 
-demo-0e9402d5
+```
+apps/
+  node-app/     Node.js HTTP server (port 3000)
+  spring-api/   Spring Boot REST API on Java 21 (port 8080)
+```
 
-demo-45f64e21
+## Run
 
-demo-3cd60f4a
+```bash
+# Node app
+npx nx serve node-app
+npx nx test node-app
+
+# Spring Boot API (requires JDK 21 and Maven on PATH)
+npx nx serve spring-api
+npx nx test spring-api
+
+# Both
+npx nx run-many -t build
+npx nx run-many -t test
+```
+
+demo-8a336802
+
+demo-220b4d60
+
+demo-31d79be7
