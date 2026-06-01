@@ -14,7 +14,7 @@ public class HelloController {
 
     @GetMapping("/health") 
     public Health health() {
-        return new Health("ok");
+        return new Health("ok"); 
     }
 
     public record Health(String status) {
