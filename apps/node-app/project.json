@@ -1,0 +1,39 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "node-app",
+  "projectType": "application",
+  "sourceRoot": "apps/node-app/src",
+  "tags": ["lang:node", "type:app"],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{projectRoot}/dist"],
+      "options": {
+        "command": "esbuild src/index.js --bundle --platform=node --target=node20 --outfile=dist/index.js",
+        "cwd": "apps/node-app"
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node src/index.js",
+        "cwd": "apps/node-app"
+      }
+    },
+    "serve:dist": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build"],
+      "options": {
+        "command": "node dist/index.js",
+        "cwd": "apps/node-app"
+      }
+    },
+    "test": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node --test \"test/**/*.test.js\"",
+        "cwd": "apps/node-app"
+      }
+    }
+  }
+}

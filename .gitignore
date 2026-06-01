@@ -3,7 +3,8 @@ dist/
 *.log
 .DS_Store
 
-
+# Java / Maven
+target/
 
 .nx/cache
 .nx/workspace-data

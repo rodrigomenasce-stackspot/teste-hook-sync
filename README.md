@@ -1,27 +1,59 @@
 # empty-test-repo
 
-Nx monorepo with two hello-world apps.
+Nx monorepo with two hello-world apps — one Node.js, one Java — both built and
+tested through Nx.
 
 ## Layout
 
 ```
 apps/
-  node-app/     Node.js HTTP server (port 3000)
-  spring-api/   Spring Boot REST API on Java 21 (port 8080)
+  node-app/     Node.js HTTP server (port 3000), bundled with esbuild
+  spring-api/   Spring Boot REST API on Java 21 (port 8080), built with Maven
 ```
 
-## Run
+## Prerequisites
 
-demo-3cd60f4a
+- Node.js >= 20 and npm (run `npm install` once)
+- JDK 21 (the Spring Boot app uses the Maven wrapper `./mvnw`, no global Maven needed)
 
-demo-9fce8de5
+## Build
 
-demo-1d5cbfab
+```bash
+# Build everything
+npx nx run-many -t build
 
-demo-56dd1aa2
+# Build a single app
+npx nx build node-app
+npx nx build spring-api
+```
 
-demo-9f9fbf72
+## Test
 
-demo-736cb31f
+```bash
+npx nx run-many -t test
+npx nx test node-app
+npx nx test spring-api
+```
 
-demo-11cd22ef
+## Serve
+
+```bash
+npx nx serve node-app     # http://localhost:3000
+npx nx serve spring-api   # http://localhost:8080
+```
+
+## Project graph
+
+```bash
+npx nx graph
+```
+
+## Targets
+
+| Project     | build                       | test               | serve                 |
+| ----------- | --------------------------- | ------------------ | --------------------- |
+| `node-app`  | esbuild bundle → `dist/`    | `node --test`      | `node src/index.js`   |
+| `spring-api`| `./mvnw package` → `target/`| `./mvnw test`      | `./mvnw spring-boot:run` |
+
+Both projects use Nx's `nx:run-commands` executor, so build/test outputs are
+cached by Nx.
