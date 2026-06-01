@@ -8,12 +8,12 @@ public class HelloController {
 
     @GetMapping("/")
     public String hello() {
-        System.out.println();
         return "Hello, world!";
     }
 
     @GetMapping("/health") 
     public Health health() {
+        System.out.println();
         return new Health("ok"); 
     }
 
