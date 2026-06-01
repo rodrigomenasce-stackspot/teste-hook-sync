@@ -1,8 +1,8 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "name": "spring-api",
+  "name": "spring-api2",
   "projectType": "application",
-  "sourceRoot": "apps/spring-api/src/main/java",
+  "sourceRoot": "apps/spring-api2/src/main/java",
   "tags": ["lang:java", "type:app"],
   "targets": {
     "build": {
@@ -10,28 +10,28 @@
       "outputs": ["{projectRoot}/target"],
       "options": {
         "command": "./mvnw -B -ntp package",
-        "cwd": "apps/spring-api"
+        "cwd": "apps/spring-api2"
       }
     },
     "test": {
       "executor": "nx:run-commands",
       "options": {
         "command": "./mvnw -B -ntp test",
-        "cwd": "apps/spring-api"
+        "cwd": "apps/spring-api2"
       }
     },
     "serve": {
       "executor": "nx:run-commands",
       "options": {
         "command": "./mvnw -B -ntp spring-boot:run",
-        "cwd": "apps/spring-api"
+        "cwd": "apps/spring-api2"
       }
     },
     "clean": {
       "executor": "nx:run-commands",
       "options": {
         "command": "./mvnw -B -ntp clean",
-        "cwd": "apps/spring-api"
+        "cwd": "apps/spring-api2"
       }
     }
   }
