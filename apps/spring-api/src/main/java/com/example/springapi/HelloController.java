@@ -11,7 +11,7 @@ public class HelloController {
         return "Hello, world!";
     }
 
-    @GetMapping("/health")
+    @GetMapping("/health") 
     public Health health() {
         return new Health("ok");
     }
