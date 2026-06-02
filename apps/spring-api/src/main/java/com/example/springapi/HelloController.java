@@ -20,3 +20,5 @@ public class HelloController {
     public record Health(String status) {
     }
 }
+
+// demo-c34c8d0d
